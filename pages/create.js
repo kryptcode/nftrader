@@ -1,12 +1,13 @@
 import { useState, useRef} from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { useAddress, useMetamask } from '@thirdweb-dev/react'
+import { useAddress } from '@thirdweb-dev/react'
 
 const Create = () => {
+    const [selectedFile, setSelectedFile] = useState();
+    const [isFilePicked, setIsFilePicked] = useState(false);
     const hiddenFileInput = useRef(null);
     const address = useAddress()
-    const connectWithMetamask = useMetamask()
       
     const handleClick = event => {
         hiddenFileInput.current.click();
@@ -14,11 +15,26 @@ const Create = () => {
 
     const handleChange = event => {
         const fileUploaded = event.target.files[0];
-        props.handleFile(fileUploaded);
+        setSelectedFile(fileUploaded)
+        fileUploaded && setIsFilePicked(true)
       };
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (!isFilePicked) return;
+        const formData = new FormData()
+        fetch("http://localhost:3001/", {
+        method: "POST",
+        body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+        console.log("Success:", result);
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        });
+        };
     }
   return (
     <div>
