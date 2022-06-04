@@ -21,20 +21,20 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!isFilePicked) return;
-        const formData = new FormData()
-        fetch("http://localhost:3001/", {
-        method: "POST",
-        body: formData,
-        })
-        .then((response) => response.json())
-        .then((result) => {
-        console.log("Success:", result);
-        })
-        .catch((error) => {
-        console.error("Error:", error);
-        });
-        };
+//         if (!isFilePicked) return;
+//         const formData = new FormData()
+//         fetch("http://localhost:3001/", {
+//         method: "POST",
+//         body: formData,
+//         })
+//         .then((response) => response.json())
+//         .then((result) => {
+//         console.log("Success:", result);
+//         })
+//         .catch((error) => {
+//         console.error("Error:", error);
+//         });
+//         };
     }
   return (
     <div>
