@@ -7,19 +7,7 @@ const Listings = () => {
   const [listings, setListings] = useState([])
   const marketplace = useMarketplace('0x937ee9cD5D230c8f91f2938c5c672111e591068d')
 
-  // useEffect(() => {
-  //   getListings()
-  // }, [listings])
 
-  // const getListings = async () => {
-  //   try {
-  //     const list = await marketplace.getActiveListings()
-
-  //     setListings(list)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
   
   async function getListings() {
     const list = await marketplace.getActiveListings()
