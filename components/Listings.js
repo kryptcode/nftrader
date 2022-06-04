@@ -5,7 +5,7 @@ import ListingCard from "./ListingCard";
 
 const Listings = () => {
   const [listings, setListings] = useState([])
-  const marketplace = useMarketplace(process.env.MKT_ADDRESS)
+  const marketplace = useMarketplace('0x937ee9cD5D230c8f91f2938c5c672111e591068d')
 
   // useEffect(() => {
   //   getListings()
