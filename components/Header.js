@@ -1,17 +1,18 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { ChevronDownIcon, SearchIcon, XCircleIcon } from '@heroicons/react/outline'
 import { useAddress, useMetamask, useDisconnect } from '@thirdweb-dev/react'
 
 const Header = () => {
     const [dropdown, setDropdown] = useState(false)
-
+    const router  = useRouter()
     const connectWithMetamask = useMetamask()
     const address = useAddress()
     const disconnect = useDisconnect()
 
   return (
     <div className='flex justify-between items-center py-3 px-3 sticky h-14 top-0 bg-white z-20'>
-        <div className='uppercase text-xl font-semibold tracking-wider text-[#1c2147]'>
+        <div className='uppercase text-xl font-semibold tracking-wider text-[#1c2147]' onClick={() => router.push('/')}>
             nftrader
         </div>
         <div className='hidden md:flex space-x-3 items-center border-[0.2px] border-blue-300 px-4'>
@@ -23,7 +24,7 @@ const Header = () => {
             />
         </div>
         <div className='hidden md:flex space-x-6 text-lg text-gray-600 font-semibold'>
-            <p className='cursor-pointer'>
+            <p className='cursor-pointer' onClick={() => router.push('/marketplace')}>
                 Marketplace
             </p>
             <p className='cursor-pointer'>
