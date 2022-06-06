@@ -21,7 +21,7 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!isFilePicked) return;
+        alert('Create Functionality not implemented yet')
     }
   return (
     <div>
@@ -102,7 +102,7 @@ const Create = () => {
                 <div className='flex  flex-col items-center justify-center pt-4'>
                     {
                         address ? (
-                            <button className='py-2 px-9 bg-blue-600 text-white rounded-md'>
+                            <button className='py-2 px-9 bg-blue-600 text-white rounded-md' type='submit'>
                                 Create
                             </button>
                         ) : (
